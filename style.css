@@ -4,10 +4,10 @@
   --panel: #101b2d;
   --text: #e8eef9;
   --muted: #9aabc3;
-  --line: #526a8c;
-  --accent: #6ea8fe;
+  --line: #477e72;
+  --accent: #66d9b0;
   --node: #1b2b45;
-  --node-border: #5477a6;
+  --node-border: #478b7a;
 }
 * { box-sizing: border-box; }
 body {
@@ -37,11 +37,11 @@ main { padding:24px clamp(12px, 3vw, 36px) 40px; }
 .tree li:last-child::after { border:0; }
 .tree ul ul::before { content:""; position:absolute; top:0; left:50%; height:38px; border-left:1.5px solid var(--line); }
 .node-wrap { display:inline-flex; align-items:center; gap:9px; position:relative; z-index:1; }
-.node { max-width:230px; border:1px solid var(--node-border); background:linear-gradient(145deg, #223b5d, var(--node)); border-radius:13px; padding:13px 17px; font-weight:700; color:var(--text); box-shadow:0 6px 22px rgba(0,0,0,.18); }
-.node.root { background:linear-gradient(145deg,#3476c4,#234b7a); border-color:#8fc2ff; font-size:1.08rem; }
+.node { max-width:230px; border:1px solid var(--node-border); background:linear-gradient(145deg, #23483f, var(--node)); border-radius:13px; padding:13px 17px; font-weight:700; color:var(--text); box-shadow:0 6px 22px rgba(0,0,0,.18); }
+.node.root { background:linear-gradient(145deg,#26876a,#205b4c); border-color:#8ce8c6; font-size:1.08rem; }
 .node.leaf { border-color:#344d6e; background:#16243a; font-weight:550; }
-.toggle { flex-shrink:0; border:1px solid #6ea8fe; color:#c9e2ff; background:#132944; border-radius:50%; width:28px; height:28px; padding:0; font-size:16px; display:grid; place-items:center; }
-.toggle:hover { background:#285d98; }
+.toggle { flex-shrink:0; border:1px solid #66d9b0; color:#c9f6e8; background:#12372f; border-radius:50%; width:28px; height:28px; padding:0; font-size:16px; display:grid; place-items:center; }
+.toggle:hover { background:#286b57; }
 .tree li.collapsed > ul { display:none; }
 .hint { display:flex; align-items:center; justify-content:center; gap:9px; color:var(--muted); padding:18px; font-size:.9rem; }
 .dot { width:8px; height:8px; border-radius:50%; background:var(--accent); }
