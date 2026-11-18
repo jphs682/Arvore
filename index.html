@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Árvore de Conceitos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">MAPA INTERATIVO</p>
+      <h1>Árvore de conceitos</h1>
+      <p class="subtitle">Clique em um conceito para explorar suas ramificações.</p>
+    </div>
+    <div class="controls">
+      <button id="expandAll" type="button">Expandir tudo</button>
+      <button id="collapseAll" type="button" class="secondary">Recolher</button>
+      <button id="reset" type="button" class="secondary">Reiniciar</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="tree-panel" aria-label="Árvore de conceitos interativa">
+      <div class="tree" id="tree"></div>
+    </section>
+    <aside class="hint"><span class="dot"></span> Clique nos círculos <span class="plus">+</span> para abrir ou fechar os ramos.</aside>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
