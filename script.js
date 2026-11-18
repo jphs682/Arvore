@@ -1,71 +1,17 @@
 const concepts = {
-  name: "Pensamento Computacional",
-  children: [
-    { name: "Decomposição", children: [
-      { name: "Dividir o problema", children: [ { name: "Etapas menores" }, { name: "Tarefas independentes" } ] },
-      { name: "Organizar partes", children: [ { name: "Prioridades" }, { name: "Responsabilidades" } ] }
-    ] },
-    { name: "Reconhecimento de padrões", children: [
-      { name: "Identificar semelhanças", children: [ { name: "Repetições" }, { name: "Comportamentos comuns" } ] },
-      { name: "Usar experiências", children: [ { name: "Soluções anteriores" } ] }
-    ] },
-    { name: "Abstração", children: [
-      { name: "Selecionar o essencial", children: [ { name: "Foco no problema" }, { name: "Ignorar detalhes irrelevantes" } ] },
-      { name: "Criar representação", children: [ { name: "Modelo" }, { name: "Diagrama" } ] }
-    ] },
-    { name: "Algoritmos", children: [
-      { name: "Sequência de passos", children: [ { name: "Instruções" }, { name: "Ordem lógica" } ] },
-      { name: "Verificar resultado", children: [ { name: "Testar" }, { name: "Corrigir" } ] }
-    ] }
-  ]
-};
-
-const treeContainer = document.getElementById('tree');
-function buildNode(item, isRoot = false) {
-  const li = document.createElement('li');
-  const wrap = document.createElement('div');
-  wrap.className = 'node-wrap';
-  const node = document.createElement('div');
-  node.className = 'node' + (isRoot ? ' root' : (!item.children ? ' leaf' : ''));
-  node.textContent = item.name;
-  wrap.appendChild(node);
-
-  if (item.children?.length) {
-    const toggle = document.createElement('button');
-    toggle.className = 'toggle';
-    toggle.type = 'button';
-    toggle.setAttribute('aria-label', `Expandir ou recolher ${item.name}`);
-    toggle.textContent = '−';
-    toggle.addEventListener('click', () => {
-      li.classList.toggle('collapsed');
-      toggle.textContent = li.classList.contains('collapsed') ? '+' : '−';
-    });
-    wrap.appendChild(toggle);
-  }
-  li.appendChild(wrap);
-  if (item.children?.length) {
-    const ul = document.createElement('ul');
-    item.children.forEach(child => ul.appendChild(buildNode(child)));
-    li.appendChild(ul);
-  }
-  return li;
-}
-function render() {
-  treeContainer.innerHTML = '';
-  const ul = document.createElement('ul');
-  ul.appendChild(buildNode(concepts, true));
-  treeContainer.appendChild(ul);
-}
-function setCollapsed(allCollapsed) {
-  document.querySelectorAll('.tree li').forEach(li => {
-    if (li.querySelector(':scope > ul')) {
-      li.classList.toggle('collapsed', allCollapsed);
-      const button = li.querySelector(':scope > .node-wrap .toggle');
-      if (button) button.textContent = allCollapsed ? '+' : '−';
-    }
-  });
-}
-document.getElementById('expandAll').addEventListener('click', () => setCollapsed(false));
-document.getElementById('collapseAll').addEventListener('click', () => setCollapsed(true));
-document.getElementById('reset').addEventListener('click', render);
-render();
+ name:"Introdução a Estruturas de Dados",
+ children:[
+ {name:"Justificativa",children:[{name:"Dados fazem parte do cotidiano",children:[{name:"Redes sociais e contatos"},{name:"Jogos e pontuações"},{name:"Listas e registros escolares"}]},{name:"Aprender a organizar informação",children:[{name:"Representar situações reais"},{name:"Escolher estruturas adequadas"}]},{name:"Desenvolver raciocínio lógico",children:[{name:"Resolver problemas"},{name:"Pensar em eficiência e organização"}]}]},
+ {name:"Objetivos",children:[{name:"Objetivo geral",children:[{name:"Compreender como estruturas organizam, armazenam e permitem manipular dados"}]},{name:"Objetivos específicos",children:[{name:"Reconhecer dados e estruturas"},{name:"Relacionar estrutura e problema"},{name:"Experimentar operações básicas"},{name:"Construir soluções simples em grupo"}]}]},
+ {name:"BNCC Computação",children:[{name:"EM13CO01",children:[{name:"Explorar soluções reutilizando partes de soluções existentes"}]},{name:"EM13CO02",children:[{name:"Refinar soluções e trabalhar com níveis de abstração"}]},{name:"EM13CO03",children:[{name:"Comparar algoritmos considerando tempo, memória e outros recursos"}]},{name:"Articulação",children:[{name:"Pensamento computacional"},{name:"Resolução de problemas"},{name:"Construção e avaliação de artefatos"}]}]},
+ {name:"Conteúdos",children:[{name:"Conceitos iniciais",children:[{name:"Dados, tipos e registros"},{name:"Estruturas e operações"}]},{name:"Estruturas lineares",children:[{name:"Vetores e listas"},{name:"Pilhas"},{name:"Filas"}]},{name:"Estruturas não lineares",children:[{name:"Introdução a árvores"},{name:"Grafos: ideia e aplicações"}]},{name:"Operações",children:[{name:"Inserir"},{name:"Consultar"},{name:"Remover"},{name:"Percorrer"}]}]},
+ {name:"Metodologia",children:[{name:"Aprendizagem por desafios",children:[{name:"Problemas próximos da realidade dos estudantes"},{name:"Trabalho colaborativo"}]},{name:"Atividades desplugadas",children:[{name:"Cartões e objetos para simular listas"},{name:"Fila de atendimento e pilha de tarefas"}]},{name:"Prática digital",children:[{name:"Visualizadores interativos"},{name:"Programação gradual"},{name:"Projetos pequenos"}]}]},
+ {name:"Desafios",children:[{name:"Conhecimentos prévios variados",children:[{name:"Começar com exemplos intuitivos"},{name:"Apoio entre colegas e atividades guiadas"}]},{name:"Abstração e terminologia",children:[{name:"Usar analogias"},{name:"Representações visuais"}]},{name:"Acesso a equipamentos",children:[{name:"Alternativas desplugadas"},{name:"Recursos compartilhados ou leves"}]},{name:"Motivação e ritmo",children:[{name:"Desafios graduais"},{name:"Contextos significativos"}]}]},
+ {name:"Avaliação",children:[{name:"Processual",children:[{name:"Participação e colaboração"},{name:"Explicação das escolhas"}]},{name:"Prática",children:[{name:"Resolver um desafio"},{name:"Construir ou simular uma estrutura"}]},{name:"Reflexão",children:[{name:"Comparar soluções"},{name:"Registrar dificuldades e aprendizados"}]}]},
+ {name:"Sugestões",children:[{name:"Projetos contextualizados",children:[{name:"Lista de tarefas da turma"},{name:"Fila da cantina"},{name:"Organizador de livros"},{name:"Ranking de jogo"}]},{name:"Progressão de aprendizagem",children:[{name:"Começar com analogias"},{name:"Simular com papel e objetos"},{name:"Representar visualmente"},{name:"Codificar quando fizer sentido"}]},{name:"Interdisciplinaridade",children:[{name:"Matemática: organização e comparação"},{name:"Ciências: dados e registros"},{name:"Projetos da escola"}]}]}
+ ]};
+const treeContainer=document.getElementById('tree');
+function buildNode(item,isRoot=false){const li=document.createElement('li');const wrap=document.createElement('div');wrap.className='node-wrap';const node=document.createElement('div');node.className='node'+(isRoot?' root':(!item.children?' leaf':''));node.textContent=item.name;wrap.appendChild(node);if(item.children?.length){const toggle=document.createElement('button');toggle.className='toggle';toggle.type='button';toggle.setAttribute('aria-label',`Expandir ou recolher ${item.name}`);toggle.textContent='−';toggle.addEventListener('click',()=>{li.classList.toggle('collapsed');toggle.textContent=li.classList.contains('collapsed')?'+':'−';});wrap.appendChild(toggle);}li.appendChild(wrap);if(item.children?.length){const ul=document.createElement('ul');item.children.forEach(child=>ul.appendChild(buildNode(child)));li.appendChild(ul);}return li;}
+function render(){treeContainer.innerHTML='';const ul=document.createElement('ul');ul.appendChild(buildNode(concepts,true));treeContainer.appendChild(ul);}
+function setCollapsed(allCollapsed){document.querySelectorAll('.tree li').forEach(li=>{if(li.querySelector(':scope > ul')){li.classList.toggle('collapsed',allCollapsed);const button=li.querySelector(':scope > .node-wrap .toggle');if(button)button.textContent=allCollapsed?'+':'−';}});}
+document.getElementById('expandAll').addEventListener('click',()=>setCollapsed(false));document.getElementById('collapseAll').addEventListener('click',()=>setCollapsed(true));document.getElementById('reset').addEventListener('click',render);render();
